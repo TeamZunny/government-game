@@ -213,7 +213,7 @@ finishQuiz=function(){
  ]));
  attributes.Experience=0;
  state.attributes=attributes;
- const sorted=GG_CORE_ATTRIBUTES.slice().sort((a,b)=>attributes[b]-attributes[a]);
+ const sorted=(state.personalityQuizVersion===1?GG_CORE_ATTRIBUTES.slice(0,5):GG_CORE_ATTRIBUTES.slice()).sort((a,b)=>attributes[b]-attributes[a]);
  const primary=sorted[0],secondary=sorted[1];
  const titles={"Charisma":"The Connector","Temper":"The Firebrand","Focus":"The Planner","Humility":"The Listener","Common Sense":"The Problem Solver","Empathy":"The Understanding One","Relatability":"The Everyday Voice"};
  const descriptions={"Charisma":"You are comfortable making an impression and bringing people into a conversation.","Temper":"You feel strongly about things and tend to react with intensity.","Focus":"You stay with a problem and value seeing things through.","Humility":"You are willing to listen, reconsider, and let others contribute.","Common Sense":"You look for solutions that work outside of theory.","Empathy":"You notice how other people are feeling and consider what they are going through.","Relatability":"People can see something familiar in the way you speak and share your experiences."};
