@@ -2,7 +2,7 @@
 
 An evolving desktop-first political-life simulator: start in a small local political role and pursue the highest office through elections, governing, relationships, research, and an independent world. The political career is nonlinear, with no player-visible rank ladder.
 
-**Current build: Phase 0 (foundation), not a completed game.** The live repo contains the V5 baseline plus the Personal Assistant, save export/import and session recovery. The redesigned playable tutorial week and living world are future work; do not report them as implemented.
+**Current build: Phase 0 plus an initial playable first-week pilot, not a completed game.** The repo contains the V5 baseline plus the Personal Assistant, save export/import, session recovery, and a guided seven-day introduction for **new** save slots. Existing campaigns are left on the original gameplay path. A fully independent NPC world, a rebuilt midgame, and corrected election math remain future work.
 
 ## Play
 
@@ -20,7 +20,7 @@ The website does **not** automatically read saves from your old locally opened `
 
 ## Design priorities
 
-- Fun-first interactive play, beginning with a gentle in-world tutorial; complexity increases with the scale of responsibility.
+- Fun-first interactive play. New characters begin with a seven-day, two-decision-per-day introduction: listening, voter contact, filing, coalition work, checking claims, limited time and follow-through. This is an early pilot; do not call it a complete tutorial or full game.
 - Player choices produce genuinely different situations and delayed consequences, not just score updates.
 - Personal Assistant automatically records information the player actually knows, without exposing off-screen secrets.
 - Clear, grounded wording; believable character continuity; no cramped text or obstructed scroll areas.
@@ -29,3 +29,9 @@ The website does **not** automatically read saves from your old locally opened `
 ## Acceptance testing
 
 See [QA_CHECKLIST.md](QA_CHECKLIST.md). A working web page is not the same as full gameplay approval. User acceptance and live save migration remain unverified until tested in the actual browser.
+
+## Current first-week pilot
+
+For a new slot, answer the existing origin quiz, enter the campaign and play the seven-day introduction. Choices affect the underlying campaign and the Personal Assistant automatically logs conversations, decisions, and reported events. Some later text changes based on earlier choices. It is deliberately gentler and less dashboard-heavy than the legacy campaign interface. At Day 8, the prototype returns to the existing campaign system; the midgame transition is not yet redesigned. **Do not overwrite an existing slot to test it.**
+
+The new `first-week.js` is loaded by `index.html`. Both belong in the root of this repo. The previous slot key names have not changed.
