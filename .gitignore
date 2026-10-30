@@ -1,0 +1,5 @@
+*.save.json
+*backup*.json
+*.local.json
+.DS_Store
+Thumbs.db
