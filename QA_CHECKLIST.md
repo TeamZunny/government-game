@@ -24,3 +24,16 @@ Current build is not fully live-tested in the user's browser; do not label it as
 - NOT IMPLEMENTED: redesigned campaign after Day 7; independently scheduled NPCs; corrected election win math.
 
 These passes used a simulated DOM and storage, not a real-user browser acceptance test. Do not promote them to browser-tested or player-approved status.
+
+## Personality and NPC attributes — 2026-10-29
+
+- PASS (simulated): New game shows the purpose of the personality test before the first question.
+- PASS (simulated): 15 everyday-life questions / three answers each; character profile and five attributes generated, values in 3–19.
+- PASS (simulated): Quit after question 4, reload and see question 5; no progress loss.
+- PASS (simulated): All 15 defined NPCs have five persistent attributes.
+- PASS (simulated): First-week dialogue creates saved, non-rerolling player-vs-NPC attribute checks.
+- PASS (simulated): Advancing a day runs independent NPC action checks, saving private world history while restricting assistant entries to publicly known events.
+- PASS (simulated): Existing completed character keeps title and progress, receives neutral compatibility attributes; older unfinished quizzes continue their old question sequence.
+- NOT VERIFIED: Live Pages propagation and user-browser visual fit after this change.
+
+The game still needs genuine playtesting for whether its random outcomes feel fair and consequential. Do not claim this is a fully modeled political ecosystem.
