@@ -50,3 +50,15 @@ The game still needs genuine playtesting for whether its random outcomes feel fa
 - PASS (simulated): Previously started V1 personality quizzes retain 15 questions, not the new 18.
 - PASS (simulated): Previously started political quizzes (pre-personality version) retain their old questions.
 - NOT VERIFIED: Visual quality and player-perceived fairness in the actual browser. The independent-world prototype is not full career simulation.
+
+## Defined career offices and goal clarity — 2026-10-30
+
+- PASS (simulated): All 60 offices have names, group, responsibilities, and selection method / route; no anonymous rank placeholders.
+- PASS (simulated): New character has current **School Board Candidate** status, no office yet, and the explicit win-the-election objective.
+- PASS (simulated): First playable week shows today's task and early action goals; dashboard after Day 7 shows the same current position.
+- PASS (simulated): Career directory opens, organizes offices by level of government, and closes without changing saves.
+- PASS (simulated): New save / reload and legacy save both retain truthful candidate status and do not invent an office already held.
+- NOT VERIFIED: Full-browser UI layout at 1366x768, 1600x900 and live GitHub Pages propagation of these latest changes.
+- NOT IMPLEMENTED: office-by-office playable elections, appointments, governance, or complete post-election career advancement. The existing election-result computation still requires redesign.
+
+**Follow-up browser test:** Open the permanent site. A character should read School Board Candidate, Office Held: None, Goal: Win the School Board election. Use Career to browse Education, Town & City, County & Regional, State, Federal, then search for President and confirm its duties and selection requirements. Return to the campaign without losing the conversation or game progress.
