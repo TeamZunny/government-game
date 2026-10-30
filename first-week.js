@@ -152,7 +152,7 @@ function renderTutorialWeek(){
  const prompt=stage===0?d.prompt:d.follow[first];
  const inner=stage<2?
   '<div class="sceneSpeaker">'+esc(d.person)+'</div><div class="sceneBody">'+esc(prompt)+'</div><div class="answers">'+opts.map((c,i)=>'<button class="choice" data-act="weekChoice" data-idx="'+i+'">'+esc(c[0])+'</button>').join("")+'</div>':
-  '<div class="sceneSpeaker">Today's outcome</div><div class="result">'+esc(w.lastResult)+'</div><p class="muted">The Personal Assistant has recorded your choice. Other people may react to it later.</p><div class="row"><button class="btn" data-act="weekContinue">'+(state.day===7?"Enter the next week":"Begin the next day")+'</button></div>';
+  '<div class="sceneSpeaker">Day complete</div><div class="result">'+esc(w.lastResult)+'</div><p class="muted">The Personal Assistant has recorded your choice. Other people may react to it later.</p><div class="row"><button class="btn" data-act="weekContinue">'+(state.day===7?"Enter the next week":"Begin the next day")+'</button></div>';
  const recent=w.learned.slice(-3).map(t=>'<div class="timelineItem">'+esc(t)+'</div>').join("")||"<p>You'll learn through actual decisions, one situation at a time.</p>";
  const extra=consequence();
  root.className="screen ggWeek";
