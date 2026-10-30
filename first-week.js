@@ -171,18 +171,20 @@ function pickWeek(i){
  w.choices[key]=c[2];
  // The player's chosen approach and both participants' attributes shape a hidden check.
  // Each result is cached in the save, so loading cannot re-roll the same interaction.
- const traitByIntent={listen:"Humility",promise:"Charisma",records:"Common Sense",message:"Charisma",
+ const traitByIntent={listen:"Empathy",promise:"Charisma",records:"Common Sense",message:"Charisma",
   honest:"Humility",verify:"Focus",amend:"Common Sense",call:"Charisma",
   ask:"Humility",answer:"Charisma",endorse:"Charisma",
-  reply:"Charisma",decline:"Temper",apartments:"Charisma",
-  parents:"Humility",list:"Focus",follow:"Humility",outreach:"Charisma",
-  policy:"Focus",followup:"Humility",authority:"Common Sense",
-  return:"Focus",card:"Charisma",receipt:"Focus",submit:"Common Sense",
+  reply:"Charisma",decline:"Temper",apartments:"Relatability",
+  parents:"Empathy",list:"Focus",follow:"Empathy",outreach:"Relatability",
+  policy:"Focus",followup:"Empathy",authority:"Common Sense",
+  return:"Empathy",card:"Relatability",receipt:"Focus",submit:"Common Sense",
   feedback:"Humility",control:"Temper",facts:"Focus",brief:"Charisma",
   adjust:"Common Sense",steady:"Focus",commit:"Focus",flex:"Common Sense"};
  const trait=traitByIntent[c[2]]||"Common Sense";
  const check=(typeof ggCheck==="function")?ggCheck("week:"+state.day+":"+key,d.person,trait,0):null;
  applyEffects(c[1]||{},true);
+ if(typeof ggAwardPlayer==="function")ggAwardPlayer(3,"week:"+state.day+":"+key,
+    "a campaign conversation and its decisions");
  if(check && check.outcome==="strong")applyEffects({trust:1},true);
  if(check && check.outcome==="uncertain")applyEffects({fatigue:1},true);
  const rollNote=check?" "+check.note:"";
