@@ -13,7 +13,7 @@ Once GitHub Pages is enabled, play at **https://teamzunny.github.io/government-g
 The website does **not** automatically read saves from your old locally opened `index.html` because browser storage is tied to an origin.
 
 1. Make a full copy of your current original game folder and avoid deleting the original `index.html`.
-2. In a second copy of **that same original folder/path**, replace just the old `index.html` with this new one, and open it **in the same browser** used previously. If your save does not appear, revert the file and stop; do not reset or overwrite the slot.
+2. Leave the backup untouched. **In the original game folder at the original file path**, replace only `index.html` with the new GitHub-ready version, then open that exact path **in the same browser** as before. If your save does not appear, restore the old file and stop; do not reset or overwrite the slot.
 3. Once you can see your old save in this updated local copy, click **Backup** and save the exported JSON outside the GitHub repository.
 4. Open the GitHub Pages game. Click **Restore**, choose that JSON file, confirm the restore, and verify all three save slots.
 5. Browser storage does not synchronize across devices. Make occasional backups; do not upload save JSON files to GitHub.
