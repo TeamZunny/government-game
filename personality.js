@@ -272,3 +272,11 @@ finishEncounter=function(){
  if(id&&state?.quizDone)ggAwardPlayer(6,"completed-encounter-"+id,"a completed political situation");
  save();
 };
+
+const ggPreviousAssistantBrief=assistantBrief;
+assistantBrief=function(){
+ const brief=ggPreviousAssistantBrief();
+ if(!state?.quizDone||!state.experienceProgress)return brief;
+ return brief+" Experience level "+state.experienceProgress.level+
+        " (earned through your time and decisions in the game).";
+};
