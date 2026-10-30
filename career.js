@@ -122,7 +122,7 @@ document.addEventListener("click",function(event){
 const style=document.createElement("style");
 style.textContent=[
  ".topCenter{min-width:240px;max-width:420px}.topCenter .chapter{letter-spacing:.08em;font-size:10px}.topCenter h1{font-size:19px;line-height:1.2}",
- ".game .roomHint{display:none}.game .stageTop>p.muted{display:none}.game .roomBtn{padding:8px;margin:5px 0}",
+ ".game .roomHint{display:none}.game .stageTop>p.muted:first-of-type{display:none}.game .roomBtn{padding:8px;margin:5px 0}",
  ".careerSummary{border:1px solid var(--line);border-radius:12px;background:rgba(244,213,141,.045);padding:9px;margin:8px 0;display:flex;flex-direction:column;gap:3px}",
  ".careerEyebrow{font-size:10px;color:var(--gold2);letter-spacing:.08em;margin-top:7px}.careerSummary strong{font-size:14px}.careerSummary>b{font-size:13px}.careerSummary>small{color:var(--ink);font-size:12px}",
  ".careerTask{display:flex;align-items:flex-start;gap:7px;margin-top:6px;padding-top:6px;border-top:1px solid rgba(244,213,141,.14)}.careerTask b{display:block;font-size:12px}.careerTask small{display:block;color:var(--muted);font-size:11px;line-height:1.25}",
