@@ -27,7 +27,7 @@ function careerProgress(){
  return [
   {name:"Meet local voters",done:v,detail:v?"First conversation recorded":"Hear voters' concerns"},
   {name:"Submit candidacy paperwork",done:f,detail:f?"Received for processing":"Check filing requirements"},
-  {name:"Reach Election Day",done:day>=24,detail:day>=24?"Election Day":"In "+Math.max(0,24-day)+" game days"}
+  {name:"Build voter support",done:(Number(state.stats?.field)||0)>=35,detail:(Number(state.stats?.field)||0)>=35?"Outreach foundation established":"Keep talking with residents and following up"}
  ];
 }
 function careerSummary(){
