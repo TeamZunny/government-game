@@ -53,7 +53,7 @@ function decorateCareer(){
  }
 }
 const previousSave=save;
-save=function(){previousSave();updateCareerHeader();decorateCareer();};
+save=function(){if(state?.quizDone)ensureCareer();previousSave();updateCareerHeader();decorateCareer();};
 const previousMigrate=migrate;
 migrate=function(){previousMigrate();ensureCareer();};
 const previousGame=renderGame;
