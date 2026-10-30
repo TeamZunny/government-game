@@ -153,4 +153,18 @@ document.addEventListener("click",function(e){
 const ggStyle=document.createElement("style");
 ggStyle.textContent=".personalityQuiz,.personalityReveal{overflow:auto;min-height:0}.personalityBox{max-width:780px}.personalityQuiz .question{font-size:clamp(21px,2.2vw,30px);line-height:1.33;margin:19px 0}.personalityQuiz .answers{gap:10px}.personalityQuiz .answer{padding:13px 16px}.personalityQuiz .lead{margin:16px 0;max-width:680px}.personalityQuiz .quizHelp{margin-top:18px;color:var(--muted);font-size:12px}.personalityReveal{max-width:860px}.personalityReveal h3{color:var(--gold2);font-family:var(--serif)}@media(max-height:730px){.personalityQuiz .question{font-size:22px;margin:10px 0 12px}.personalityQuiz .answer{padding:10px 14px}.personalityQuiz .answers{gap:8px}}";
 document.head.appendChild(ggStyle);
-if(state?.quizDone&&state.attributes)ggEnsureActors();
+// Old completed campaigns did not have attributes. Give them neutral starting
+// values without changing their original profiles, scores, or save slots.
+const ggOldMigrate=migrate;
+migrate=function(){
+ ggOldMigrate();
+ if(state?.quizDone){
+  if(!state.attributes){
+   state.attributes=Object.fromEntries(GG_CORE_ATTRIBUTES.map(k=>[k,10]));
+   state.attributeSource="legacy-neutral";
+  }
+  ggEnsureActors();
+ }
+};
+if(state?.quizDone){migrate();save();}
+if(state?.personalityQuizVersion&&!state.quizDone)renderQuiz();
