@@ -85,7 +85,7 @@ function ggEnsureActors(){
  if(!state||!state.quizDone)return;
  if(!state.npcAttributes)state.npcAttributes={};
  if(!state.worldHistory)state.worldHistory=[];
- if(!state.npcWorld)state.npcWorld={lastDay:1,rivalActivity:0,communityActivity:0,reportingActivity:0};
+ if(!state.npcWorld)state.npcWorld={lastDay:Math.max(1,Number(state.day)||1),rivalActivity:0,communityActivity:0,reportingActivity:0};
  for(const npc of CHARACTERS){
   if(!state.npcAttributes[npc.id])state.npcAttributes[npc.id]=ggAttributesFor(npc.id);
   const attrs=state.npcAttributes[npc.id],defaults=ggAttributesFor(npc.id);
