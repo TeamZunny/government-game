@@ -25,7 +25,7 @@
 </style>
 </head>
 <body>
-<div class="app"><div class="frame"><header class="top"><div class="brand"><div class="seal">▰</div><div><div class="brandTitle">Government Game</div><div class="sub">Harbor Ward Seven</div></div></div><div class="topCenter"><div class="chapter">Harbor Ward Seven</div><h1>Your Political Life</h1></div><div class="row"><span id="saveStatus" class="saveLine">Not loaded</span><button class="btn secondary" data-act="save">Save</button><button class="btn ghost backupBtn" data-act="export">Backup</button><button class="btn ghost backupBtn" data-act="import">Restore</button><button class="btn ghost" data-act="home">Slots</button></div></header><main id="root" class="screen"></main></div></div>
+<div class="app"><div class="frame"><header class="top"><div class="brand"><div class="seal">▰</div><div><div class="brandTitle">Government Game</div><div class="sub">Harbor Ward Seven</div></div></div><div class="topCenter"><div class="chapter">Harbor Ward Seven</div><h1>Your Political Life</h1></div><div class="row"><span id="saveStatus" class="saveLine">Not loaded</span><button class="btn secondary" data-act="save">Save</button><button class="btn ghost backupBtn" data-act="export">Backup</button><button class="btn ghost backupBtn" data-act="import">Restore</button><button class="btn ghost backupBtn" data-act="career">Career</button><button class="btn ghost" data-act="home">Slots</button></div></header><main id="root" class="screen"></main></div></div>
 <input id="importBackup" type="file" accept="application/json,.json" hidden aria-label="Choose a Government Game backup">
 <div id="modal" class="modalBackdrop"></div>
 <script>
@@ -137,5 +137,6 @@ load(activeSlot);
 </script>
 <script src="./personality.js"></script>
 <script src="./first-week.js"></script>
+<script src="./career.js"></script>
 </body>
 </html>
