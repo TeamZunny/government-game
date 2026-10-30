@@ -44,7 +44,7 @@ function ggNpcStep(day){
    const event={day:d,actorId:npc.id,task,trait:skill,outcome:outcome.strong?"major success":outcome.success?"progress":"setback",public:false};
    state.worldHistory.push(event);
    if(npc.id==="rusk"||npc.id==="grell"){
-     if(outcome.success){w.rivalActivity+=outcome.strong?2:1;state.stats.opposition=ggClamp((state.stats.opposition||0)+1,0,100);}
+     if(outcome.success){w.rivalActivity+=outcome.strong?2:1;}
    }else if(npc.id==="nia"||npc.id==="priya"){
      if(outcome.success)w.reportingActivity+=1;
    }else if(npc.id==="tamsin"||npc.id==="junie"||npc.id==="kenna"){
@@ -69,7 +69,8 @@ function ggCheck(eventId,personName,trait,bonus=0){
  const npc=CHARACTERS.find(n=>personName.includes(n.name))||CHARACTERS.find(n=>personName.startsWith(n.name.split(" ")[0]));
  const npcAttrs=npc?state.npcAttributes[npc.id]:ggAttributesFor("mara");
  const theirs=ggRoll(npcAttrs,trait,11);
- const ours=ggRoll(state.attributes,trait,11+Math.round((theirs.total-11)/5),bonus+2);
+ const temperFriction=(trait==="Humility"||trait==="Focus")?Math.max(0,(state.attributes.Temper-12)*0.3):0;
+ const ours=ggRoll(state.attributes,trait,11+Math.round((theirs.total-11)/5),bonus+2-temperFriction);
  const outcome=ours.strong?"strong":ours.success?"steady":"uncertain";
  const note=outcome==="strong"?"Your approach lands particularly well.":outcome==="uncertain"?"The conversation is less convincing than you hoped, but it can continue.":"Your point is understood, even though questions remain.";
  const record={trait,outcome,note,playerRoll:ours.die,npcRoll:theirs.die,npcId:npc?.id||null};
