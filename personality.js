@@ -39,7 +39,7 @@ function ggNpcStep(day){
    if(!turnChance.success)continue;
    const tasks=GG_ACTOR_ACTIONS[npc.id]||["Attend to their own work"];
    const task=tasks[Math.floor(Math.random()*tasks.length)];
-   const skill=/meet|contact|speak|outreach|support|interview|organize/i.test(task)?"Charisma":/claim|details|records|review|check|compare|verify|edit/i.test(task)?"Focus":"Common Sense";
+   const skill=/consult|gather|community|observer|parents/i.test(task)?"Humility":/response|opposition|campaign statement/i.test(task)?"Temper":/meet|contact|speak|outreach|support|interview|organize/i.test(task)?"Charisma":/claim|details|records|review|check|compare|verify|edit/i.test(task)?"Focus":"Common Sense";
    const outcome=ggRoll(state.npcAttributes[npc.id],skill,12);
    const event={day:d,actorId:npc.id,task,trait:skill,outcome:outcome.strong?"major success":outcome.success?"progress":"setback",public:false};
    state.worldHistory.push(event);
@@ -117,7 +117,8 @@ finishQuiz=function(){
  if(!state?.personalityQuizVersion){ggOldFinishQuiz();return;}
  if(state.quizDone)return;
  // Numbers influence rolls but are not placed in the player's face.
- const attributes=Object.fromEntries(GG_CORE_ATTRIBUTES.map(k=>[k,ggClamp(8+(state.scores[k]||0),3,19)]));
+ const mean=GG_CORE_ATTRIBUTES.reduce((sum,k)=>sum+(state.scores[k]||0),0)/GG_CORE_ATTRIBUTES.length;
+ const attributes=Object.fromEntries(GG_CORE_ATTRIBUTES.map(k=>[k,ggClamp(Math.round(10+((state.scores[k]||0)-mean)*0.85),3,19)]));
  state.attributes=attributes;
  const sorted=GG_CORE_ATTRIBUTES.slice().sort((a,b)=>attributes[b]-attributes[a]);
  const primary=sorted[0],secondary=sorted[1];
