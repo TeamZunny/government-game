@@ -32,7 +32,7 @@ function careerProgress(){
 }
 function careerSummary(){
  const c=careerStatus();
- return '<section class="careerSummary" data-career-injected="true"><span class="careerEyebrow">CURRENT POSITION</span><strong>'+esc(c.position)+'</strong><span class="careerEyebrow">GOAL</span><b>'+esc(c.goal)+'</b><span class="careerEyebrow">TODAY</span><small>'+esc(c.today)+'</small>'+
+ return '<section class="careerSummary" data-career-injected="true"><span class="careerEyebrow">CURRENT STATUS</span><strong>'+esc(c.position)+'</strong><span class="careerEyebrow">OFFICE HELD</span><small>None</small><span class="careerEyebrow">GOAL</span><b>'+esc(c.goal)+'</b><span class="careerEyebrow">TODAY</span><small>'+esc(c.today)+'</small>'+
  careerProgress().map(x=>'<div class="careerTask"><span>'+(x.done?"✓":"○")+'</span><div><b>'+esc(x.name)+'</b><small>'+esc(x.detail)+'</small></div></div>').join('')+'</section>';
 }
 function updateCareerHeader(){
@@ -40,7 +40,7 @@ function updateCareerHeader(){
  const chap=top.querySelector(".chapter"),title=top.querySelector("h1");if(!chap||!title)return;
  if(!state){chap.textContent="HARBOR WARD SEVEN";title.textContent="Your Political Life";return;}
  const s=careerStatus();
- chap.textContent="POSITION · "+s.position;
+ chap.textContent="CURRENT STATUS · "+s.position;
  title.textContent="Goal: "+s.goal;
 }
 function decorateCareer(){
