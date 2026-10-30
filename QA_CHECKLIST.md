@@ -5,7 +5,7 @@
 - **Restore:** On different browser origin, restore the JSON and verify slots and character history.
 - **Overwrite guard:** Starting New over an existing slot asks for confirmation; Cancel changes nothing.
 - **Invalid data guard:** Corrupted slot does not get replaced automatically and raw content can still be exported.
-- **Quiz:** Start in empty slot; answer 25 questions; reveal appears and Enter works.
+- **Quiz:** Start in empty slot; answer 18 personality questions; reveal appears and Enter works. Existing in-progress legacy quizzes retain their previous length.
 - **Assistant:** Open Personal Assistant, search, filter, close, resume. Decisions and scene text appear automatically.
 - **Scene persistence:** Start a situation, choose a response, pause, refresh, resume from the same beat. No duplicate application of a selected response.
 - **Layout:** At 1366×768 and 1600×900, assistant dialog scrolls internally and no controls are trapped.
@@ -37,3 +37,16 @@ These passes used a simulated DOM and storage, not a real-user browser acceptanc
 - NOT VERIFIED: Live Pages propagation and user-browser visual fit after this change.
 
 The game still needs genuine playtesting for whether its random outcomes feel fair and consequential. Do not claim this is a fully modeled political ecosystem.
+
+## Additional attributes and Experience — 2026-10-29
+
+- PASS (simulated): New characters answer **18 nonpolitical personality questions** covering seven personality attributes.
+- PASS (simulated): Player and all 15 NPCs have eight attributes, including Empathy, Relatability, and Experience.
+- PASS (simulated): Experience is zero immediately after creation, cannot be granted by quiz answers, and grows only through unique in-game decisions and elapsed days.
+- PASS (simulated): XP thresholds increase an internal experience level; that level changes the Experience roll bonus without affecting a political rank.
+- PASS (simulated): A seven-day playthrough reaches Day 8 and earns experience levels; all five original traits still participate in rolls.
+- PASS (simulated): Hidden checks for empathy/relatability, NPC task rolls, and character growth are recorded; reloading mid-decision does not reroll or double-award XP.
+- PASS (simulated): Existing saves preserve their original attributes and progress; missing Empathy/Relatability default to neutral 10 and Experience to zero.
+- PASS (simulated): Previously started V1 personality quizzes retain 15 questions, not the new 18.
+- PASS (simulated): Previously started political quizzes (pre-personality version) retain their old questions.
+- NOT VERIFIED: Visual quality and player-perceived fairness in the actual browser. The independent-world prototype is not full career simulation.
